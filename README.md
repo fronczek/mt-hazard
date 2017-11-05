@@ -4,16 +4,20 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
+# Ustawa-Hazardowa
 Skrypty dotyczące polskiej Ustawy o grah hazardowych
 
 Wywołanie skryptu wygeneruje gotowy kod rsc dla Mikrotika, który można wrzucić następnie do automatycznego wywoływania (/system scheduler):
 
+```
 :log info "Removing old MF BlackList"
 :if ([:len [/file find name=hazard.rsc]] > 0) do={/file remove hazard.rsc }
 :log info "Downloading new MF BlackList"
 /tool fetch url="http://lokalizacja/sktyptu/mikrotik.php" dst-path=hazard.rsc mode=http
 :log info "Importing new MF BlackList"
 /import file-name=hazard.rsc
+```
+
 
 ### How do I get set up? ###
 
